@@ -1,0 +1,35 @@
+name: Deploy to cPanel (FTP)
+
+on:
+  push:
+    branches:
+      - main
+  # Izinkan trigger manual dari tab Actions
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Sync files to cPanel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          port: ${{ vars.FTP_PORT }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          server-dir: ${{ vars.FTP_SERVER_DIR }}
+          # Hapus file di server yang sudah tidak ada di repo (hati-hati: permanen)
+          delete-local-extra-files: false
+          # Jangan sinkron folder ini ke server
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
