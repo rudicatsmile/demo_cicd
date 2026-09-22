@@ -1,4 +1,5 @@
-# Catatan Pentest & Security for everyone
+# Catatan Pentest & Security for everyone. 
+# Jakarta 22 Sept 2026
 
 Struktur catatan hasil rapi dari materi Sekolah Hacker / Cilsy (`latihan3.txt`).
 
