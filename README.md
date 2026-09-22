@@ -1,4 +1,4 @@
-# Catatan Pentest & Security
+# Catatan Pentest & Security for everyone
 
 Struktur catatan hasil rapi dari materi Sekolah Hacker / Cilsy (`latihan3.txt`).
 
